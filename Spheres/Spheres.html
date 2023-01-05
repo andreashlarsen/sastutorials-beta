@@ -19,30 +19,37 @@
 <div class="inner">
 
 <h4><a href="../index.html">Home</a></h4>
-<h1>Tutotial: Spheres:</h1>
+<h1>Tutotial: Spheres</h1>
 	
-<h4>Prerequisites:</h4>
+<h4>Prerequisites</h4>
 	<p>Download and install <a href="https://www.sasview.org">SasView</a></p>
 	
-<h4>Monodisperse spheres</h4>
+<h4>Learning outcomes</h4>
+	<p>Basic understanding of small-angle scattering</p>
+	<p>Get intuition about the scattering from spheres and other shapes</p>
+	<p>Learn simple model fitting in SasView</p>
+	<p>Learn how interparticle interaction and polydispersity affects the scattering</p>
+	
+<h4>Part 1: 1Monodisperse spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a 50 Å radius</p>
 	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/>
-	<p>Comment the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2). Notice the inverse relation: larger particles have features at smaller q.</p>
+	<p>Comment the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2), or with other shapes. Notice the inverse relation: larger particles have features at smaller q.</p>
 	<p>Download the simulated data: Isim.dat. <a href="Isim.dat">example data</a></p>
 	<p>Load into SasView and fit with sphere model</p>
 	<img src="SasView_sphere50" style="width:1000px"/>
 	<p>Does the fitted radius match the input for the simulations (50 Å)?</p>
 
-<h4>Polydisperse spheres</h4>
+<h4>Part 2: Polydisperse spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and polydispersity of 0.2 as Model 2.</p>
 	<p>Comment the results</p>
 	<p>Note: a gaussian size distribution is used in the simulations, but many different distributions are possible</p>
 
-<h4>Monodisperse spheres with interaction (structure factor)</h4>
+<h4>Part 3: Monodisperse spheres with interparticle repulsion (hard-sphere structure factor)</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and hard sphere structure factor with volume fraction 0.2 and hard-sphere interaction radius of 50 Å as Model 2.</p>
 	<img src="Shape2SAS_HardSphere.png" style="width:1000px"/>	
 	<p>Comment the results</p>
-	<p>Download the simulated data for mModel 2: Isim_2.dat</p>
+	<p>A hard-sphere structure factor can arise from interparticle repulsion in concentrated samples of dilute identical particles.</p>
+	<p>Download the simulated data for Model 2: Isim_2.dat. <a href="Isim_2.dat">example data</a></p>
 	<p>Load into SasView and fit with sphere with hard sphere structure factor</p>
 	<p>Does the fitted radius, volume fraction and hard-sphere radius match the input for the simulations?</p>
 
