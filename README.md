@@ -1,2 +1,4 @@
 # SASTutorials
-Code for website containing Tutorials on Small-Angle Scattering Data Interpretation and Analysis
+Code for website containing Tutorials on Small-Angle Scattering:
+
+https://github.com/andreashlarsen/sastutorials-beta
