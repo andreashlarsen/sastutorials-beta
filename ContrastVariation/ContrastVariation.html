@@ -40,10 +40,10 @@
 <h4>Part 2: Core-shell spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spherical core-shell particle with inner radius of 30 Å and core dSLD of -1, and outer radius of 50 Å and shell dSLD of 1.</p>
 	<p>Comments on the results. Try to compare with a sphere with radius 30 Å or 50 Å (as Model 2). Adjust the radii of the core-shell particle to get an I(0) of 0. (<a href="hint1.html">Hint</a>)</p>
-	<p>Download the simulated data for Model 1: Isim.dat (<a href="Isim.dat">example data</a></p>).
+	<p>Download the simulated data for Model 1: Isim.dat (<a href="Isim.dat">example data</a>)</p>.
 	<p>Load into SasView and fit a <a href="https://www.sasview.org/docs/user/models/core_shell_sphere.html">core-shell sphere form factor</a>. The result may look like this:</p>
 	<img src="SasView_CoreShell.png" style="width:1000px"/>
-	<p>Are the fitted values the same as the input values? Can you fit with different combinations of sld_core, sld_shell and sld_solvent? why (not)? <a href="https://en.wikipedia.org/wiki/Babinet%27s_principle">hint</a></p>. 
+	<p>Are the fitted values the same as the input values? Can you fit with different combinations of sld_core, sld_shell and sld_solvent? why (not)? <a href="https://en.wikipedia.org/wiki/Babinet%27s_principle">hint</a></p> 
 	<p>What happens if you fit both sld_core, sld_shell and sld_solvent? why? <a href="https://en.wikipedia.org/wiki/Correlation">hint</a></p>
 
 <h4>Part 3: A virtual contrast-variation experiment</h4>
@@ -63,7 +63,20 @@
 	<img src="SasView_Cylinder.png" style="width:1000px"/>
 	<p>OBS: note that the simulated data is made with a finite number of points and placed at random in the user-defined volume, so the the fits are not perfect. Not unlike a fit to experimental data.</p>
 
-<h4>Part 4: Calculating scattering length densities and designing an experiment</h4>
+<h4>Part 4: Calculating how to match-out DDM in 100% D<sub>2</sub>O</h4>
+	<p> The goal here is to calculate how much to deuterate a DDM detergent in order to match it out in a SANS experiment at 100% D2O. A spreadsheet will be useful.</p>
+	<p> Use the chemical formulas to calculate the neutron coherent scattering lenghts for heavy water (D<sub>2</sub>O), DDM head group (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroup (<sub>12</sub>H<sub>25</sub>), using <a href="https://www.ncnr.nist.gov/resources/n-lengths/">table values.</a></p>
+	<p> Use the experimentally determined molecular volumes to calculate SLD and dSLD = SLD-SLD_D<sub>2</sub>O for heavy water (30 Å<sub>3</sub>), DDM head groups (350.4 Å<sub>3</sub>) and DDM tailgroup (350.2 Å<sub>3</sub>).</p>
+	<p> 7 H from the DDM headgroup are exchangable, i.e, when dispersed in D<sub>2</sub>O, they spontaneously exchange with Ds from the solvent. There are no exchangable H in the tailgroup. Calculate the SLD and dSLD of the DDM headgroup after exchange (C<sub>12</sub>H<sub>14</sub>D<sub>7</sub>O<sub>11</sub>)</p>
+	<p> Now calculate how many of the non-exchangeable Hs that should be converted to Ds in head and tail to match out in 100% D<sub>2</sub>O. <a href="hint2.html">Hint, <a href="DDM_ContrastVariation.xlsx">Solution</p>
+	<p> Calculate the neutron SLD of D<sub>2</sub>O using SasView -> Tool -> SLD Calculator. Be aware to use the right <a href="https://en.wikipedia.org/wiki/Heavy_water">mass density</a>. You should get SLD = 6.38e-06 Å<sup>-2</sup>.</p>
+
+	<p> Calculate the mass densities of <a href="https://avantilipids.com/product/850520">DDM</a> headgroup (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroup (<sub>12</sub>H<sub>25</sub>), using their experimentally determined volumes at 20 &#8451: 350.4 Å<sup>3</sup> (head) and 350.2 Å<sup>3</sup> (tail).</p>
+	<p> Calculate the neutron SLD of <a href="https://avantilipids.com/product/850520">DDM</a> headgroup (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroup (<sub>12</sub>H<sub>25</sub>)</p>
+	<p> Calculate the dSLD of head- and tailgroup.</p>
+	<p> OBS: find the average value - no need to reach an integer number. Why is this ok, experimentally?</p>
+	<p> Why is it better to match with D<sub>2</sub>O as solvent compared to H<sub>2</sub>O? <a href="https://e-learning.pan-training.eu/wiki/index.php/Basics_of_neutron_scattering#Coherent_and_incoherent_scattering">hint</a>.</p>
+
 
 <!-- end inner -->
 </div>
