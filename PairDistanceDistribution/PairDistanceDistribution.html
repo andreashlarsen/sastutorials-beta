@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+
+<html>
+	
+<head>
+<title>Tutorial Pair distance distribution</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="../assets/css/main.css" />
+<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+<div id="wrapper">
+
+<div id="main">
+
+<div class="inner">
+
+<h4><a href="../index.html">Home</a></h4>
+<h1>Tutotial: Pair distance distribution (p(r))</h1>
+<p> Tutorial contributors: Andreas Haahr Larsen</p>
+<p> Frontpage image from <a href="https://nbi.ku.dk/english/theses/phd-theses/phd_theses_2018/andreas_haahr_larsen/Thesis_AndreasHLarsenSept2018.pdf">Larsen 2018 (PhD Thesis)</a></p>
+
+	<!--
+<h4>Before you start</h4>
+	<ul>
+	<li>Download and install <a href="https://www.sasview.org">SasView</a> (needed for Part 2 and 3)</li>
+	</ul>
+	-->
+
+<h4>Learning outcomes</h4>
+	<ul>
+	<li>Understand Fourier transformaiton of small-anlge scattering data.</li>
+	<li>Learn to use and interpret pair distance distributions.</li>	
+	</ul>
+
+<h4>Introductory remarks</h4>
+	<p>SAS data is measured in "reciprocal space", i.e. as funciton of 1/length. By a Fourier transformation, one can get a distribution of distances between scattering pairs in the sample (weighted by contrast): the pair distribuion or simply the "p(r)" (colloquially denoted the "p-of-r-function").</p>
+	<p>The p(r) is in "real space", i.e. as function of length, so it can be interpreted more intuitively than the data. It may provided useful structural information about the sample prior to any modelling.</p>
+
+<h4>Part 1: Understand the basics math of Fourier tranformation that is used to get the pair distance distribution from SAS data</h4>
+	<p>In order to understand the basics, solve excersizes at <a>https://pan-learning.org/wiki/index.php/Problem:Fourier_transform>pan-learning.org</a></p>
+	<p>These are simple 1D examples, but the math is the same for more realistic samples.</p>
+
+
+<h4>Part 2: Pair distribution function for various shapes</h4>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with inner of 50 Å as Model 1 and a 30 Å sphere as Model 2.</p>
+	<img src="Shape2SAS-spheres.png" style="width:1000px"/>
+	<p>Could you guess the shape (sphere) directly from the p(r)? How would the p(r) look for an ellipsoid? or a cylinder? Try to calculate the p(r) for various shapes</p>
+
+<h4>Part 3: Radius of gyration</h4>	
+<!--
+	<p>Download the simulated data for Model 1: Isim.dat. (<a href="Isim.dat">Example data</a>)</p>
+	<p>Load into SasView and fit a <a href="https://www.sasview.org/docs/user/models/core_shell_sphere.html">core-shell sphere form factor</a>. The result may look like this:</p>
+	<img src="SasView_CoreShell.png" style="width:1000px"/>
+	<p>Are the fitted values the same as the input values? Can you fit with different combinations of sld_core, sld_shell and sld_solvent? why (not)? (<a href="https://en.wikipedia.org/wiki/Babinet%27s_principle">Hint</a>)</p> 
+	<p>What happens if you fit both sld_core, sld_shell and sld_solvent? why? (<a href="https://en.wikipedia.org/wiki/Correlation">Hint</a>)</p>
+
+<h4>Part 3: Pair distance distribution for in homogeneous particles</h4>
+	<p>The p(r) is a contrast-weighted pair distribution. I.e. each point is the weighted sum of all pairs with given distance. If a pair of scatterers has contrast with the same sign, then they contribute positively, vise versa. This means that the p(r) can have negative values<\p>
+	<p>(OBS: contrast = SLD = scattering length density)
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a core-shell sphere with inner radius 40 Å and outer radius 50 Å and with inner SLD of -1 and outer SLD of +1
+	<img src="SasView_CoreShell1.png" style="width:1000px"/>
+	<img src="SasView_CoreShell2.png" style="width:1000px"/>
+	<p>What pairs does the negative part represent? What distances does the two positive parts represent?
+
+
+    <p>This part is inspired by <a href="https://doi.org/10.1111/febs.14345">Midtgaard et al 2018</a>, where a detergent DDM is matched-out in SANS to get the scattering from a membrane protein without the detergent signal.</p>
+    <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and dSLD of 2. This is our simplistic model of an integral membrane protein.</p>
+	<p>The transmembrane part of the  protein is hydrophobic, and therefore need to be solubilized in an actual experiment.</p>
+	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for a detergent micelle. Input parameters and output could look like this:</p>
+    <img src="Shape2SAS_ProteinMicelle.png" style="width:1000px"/>
+	<img src="Shape2SAS_ProteinMicelle2.png" style="width:1000px"/>
+	<p>We consider the situation, where the scientist is interested in finding the shape of the protein (here: the cylinder), and not the detergent micelle (here: the core-shell ellipsoid). </p>
+	<p>The whole system (protein+micelle) can be fitted simultaneously (see, eg., <a href="https://doi:10.1107/S1399004714016678">Perez and Koutsioubas, 2015</a>), but the shape can be determined more precisely, if the scattering signal from the micelle could be removed.</p>
+	<p>This can be achieved in SANS, by deuteration. First step is to partly deuterate the detergents, so head and tailgroups have the same scattering, i.e. replace some H's by D's. </p>
+	<p>Make a naive simulation of this, by changing the dSLD of the ellipsoid to the same value, e.g. 3.</p>
+	<p>Now, simulate that the solvent is replaced from H20 to D20. Simulate this by decreasing the dSLD of all elements by 3, so the dSLD of the ellipsoid is 0 and dSLD of the cylinder is -1. Now compare with Model 1 (protein without detergent).</p>
+	<p>Download the simulated data for Model 2 (with contrast-matched DDM): Isim_2.dat. <a href="Isim_2.dat">example data</a>, load into SASView and fit with a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder form factor</a>.</p>
+	<p>The result may look like this:</p>
+	<img src="SasView_Cylinder.png" style="width:1000px"/>
+	<p>OBS: the simulated data is made with a finite number of points and placed at random in the user-defined volume, so the the fits are not perfect. (Not unlike a fit to experimental data).</p>
+
+<h4>Part 4: Calculating how to match-out DDM in 100% D<sub>2</sub>O</h4>
+	<p> The goal here is to calculate how much to deuterate a <a href="https://avantilipids.com/product/850520">DDM detergent</a> in order to match it out in a SANS experiment at 100% D2O. A spreadsheet will be useful.</p>
+	<p> Use the chemical formulas to calculate the neutron coherent scattering lenghts for heavy water (D<sub>2</sub>O), DDM headgroups (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroups (C<sub>12</sub>H<sub>25</sub>), using <a href="https://www.ncnr.nist.gov/resources/n-lengths/">NIST tabular values.</a></p>
+	<p> Use  experimentally determined molecular volumes to calculate SLD and dSLD = SLD-SLD_D<sub>2</sub>O for heavy water (30.0 Å<sup>3</sup>), DDM headgroups (350.4 Å<sup>3</sup>) and DDM tailgroup (350.2 Å<sup>3</sup>).</p>
+	<img src="table_DDM.png" style="width:700px"/>
+	<p> 7 Hs from the DDM headgroup are exchangable, i.e, when DDM is dissolved in D<sub>2</sub>O, these Hs spontaneously exchange with Ds from the solvent. There are no exchangable Hs in the tailgroup (i.e. they are tightly bound). Calculate the SLD and dSLD of the DDM headgroup after exchange (C<sub>12</sub>H<sub>14</sub>D<sub>7</sub>O<sub>11</sub>).</p>
+	<p> Now calculate how many of the non-exchangeable Hs that should be converted to Ds in head and tail to match out in 100% D<sub>2</sub>O. (<a href="hint2.html">Hint</a>, <a href="DDM_ContrastVariation.xlsx">Solution</a>)</p>
+	<p> Calculate the neutron SLD of D<sub>2</sub>O using SasView -> Tool -> SLD Calculator. Be aware to use the right <a href="https://en.wikipedia.org/wiki/Heavy_water">mass density</a>. You should get SLD = 6.38e-06 Å<sup>-2</sup>.</p>
+	<p> Calculate the mass densities of <a href="https://avantilipids.com/product/850520">DDM</a> headgroup (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroup (<sub>12</sub>H<sub>25</sub>), using their experimentally determined volumes at 20 &#8451: 350.4 Å<sup>3</sup> (head) and 350.2 Å<sup>3</sup> (tail).</p>
+	<p> Calculate the neutron SLD of <a href="https://avantilipids.com/product/850520">DDM</a> headgroup (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroup (<sub>12</sub>H<sub>25</sub>)</p>
+	<p> Calculate the dSLD of head- and tailgroup.</p>
+
+	<p> OBS: find the average values - no need to reach an integer number. Why is this ok, experimentally?</p>
+	<p> Why is it better to match in D<sub>2</sub>O rather than H<sub>2</sub>O as solvent? (<a href="https://e-learning.pan-training.eu/wiki/index.php/Basics_of_neutron_scattering#Coherent_and_incoherent_scattering">Hint</a>)</p>
+-->
+
+<!-- end inner -->
+</div>
+	
+<!-- end main -->´
+</div>
+
+<!-- end wrapper -->´
+</div>
+	
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>	
+</html>
