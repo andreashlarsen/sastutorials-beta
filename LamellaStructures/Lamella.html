@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+
+<html>
+	
+<head>
+<title>Tutorial Lamella</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="../assets/css/main.css" />
+<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+<div id="wrapper">
+
+<div id="main">
+
+<div class="inner">
+
+<h4><a href="../index.html">Home</a></h4>
+<h1>Tutotial: Lamella</h1>
+<p> Tutorial contributors: Andreas Haahr Larsen, Jacob Judas Kain Kirkensgaard.</p>
+<p> Frontpage image from <a href="https://doi.org/10.3390/biomimetics6010003">Luchini and Vitiallo 2021</a></p>
+
+<h4>Before you start</h4>
+	<ul>
+	<li>Download and install <a href="https://www.sasview.org">SasView</a> (needed for Part 3 and 4)</li>
+	</ul>
+	
+<h4>Learning outcomes</h4>
+	<ul>
+	<li>Understand how the scattering from <a href="https://en.wikipedia.org/wiki/Lamella_(cell_biology)">lamella</a> structures looks (unilammellar vesicles, multilamella vesicles.</li>
+	<li>Fit lamella data in SasView, using SLD calculators and relevant form factors and structure factors.</li>	
+	</ul>
+	
+<h4>Part 1: Visual inspection of data</h4>
+	<p>You have measured two SAXS datasets: <a href="Sample1.dat">Sample1.dat</a>, which is <a href="https://en.wikipedia.org/wiki/Dipalmitoylphosphatidylcholine">DPPC</a> in H2O and <a href="Sample2.dat">Sample2.dat</a>, which is a <a href="https://en.wikipedia.org/wiki/Lecithin">lecithin (lipid) extract</a> of unknown composition, but expected to contain much PC.</p>
+	<p>Load the data into SasView and create new plot:</p>
+	<img src="SasView_VisualInspection.png" style="width:1000px"/>
+	<p>Comment on the differences. The samples are either unilamellar vesicles or multilamellar vesicles (see, e.g., Figure 2 in <a href="https://doi.org/10.3390/biomimetics6010003">Luchini and Vitiallo 2021</a> ). Which is which? What do the the peaks of Sample1 represent and can you derive any structural info from their position (q-value)? (<a href="hint1.html">Hint</a>)</p>
+
+<h4>Part 2: Fourier Tranform the data</h4>
+    <p>Note: there is a separate tutorial on <a href="../FourierTransformation.html">Fourier tranformation</a> of small-angle scattering data, and the pair distance ditribution.</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/bayesapp/">BayesApp</a>, which is a web applicatioin for doing <a href="https://en.wikipedia.org/wiki/Indirect_Fourier_transform">indirect Fourier transformation</a> of small-angle scattering data.</p>
+	<p>Manually remove all headerlines in Sample1.dat and remove lines containing 0 in the intensity and error columns (beginning and end of the file). (or use this dataset: <a href="Sample1_clean.dat">Sample1_clean.dat</a>)</p>
+	<p>Upload the edited datafile to BayesApp, choose Transformation: negative (to allow for negative values of the pair distance distribution). Give an estimate for the maximum distance, e.g. 500 Å, set qmax to 0.5 Å<sup>-1</sup>, and press Submit:</p>
+	<img src="BayesApp_Sample1.png" style="width:1000px"/>
+	<p>Comment on the result</p>
+	<p>Do the same for Sample2 (<a href="Sample2_clean.dat">Sample2_clean.dat</a>)</p>
+	<p>Note: BayesApp gives an estimate of the error bars in data, as well as a rescaled dataset (<a href="https://doi.org/10.1107/S1600576721006877">Larsen and Pedersen 2021</a>). Albeit useful, you can ignore that for now.</p>
+
+<h4>Part 3: Fit the data with an analytical model</h4>
+	<p>Before we fit the data, we need to consider all prior knowledge. This is critical because fitting SAS data is an ambiguous <a href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problem</a>, i.e. there are several models that can fit the data. </p>
+	<p>First and foremost, we must estimate the scattering length densities (SLD) and excess scattering length density (dSLD = SLD - SLD_H2O) of POPC head and tail groups.</p>
+	<p>The molecular volumes can be determined experimentally and are 30 Å<sup>3</sup> for H2O, 325 for DPPC head grops and 969 for DPPC tail groups. Use SasView Density/volume calculator to get the mass densities. </p>
+	<p>Use SasView SLD calculator to get the SLD values for solvent, head and tail group.  (<a href="hint2.html">Hint</a>, <a href="SLD_SasView.xlsx">Solution</a>) </p>
+	<p>You will use the SasView models <a href="https://www.sasview.org/docs/user/models/lamellar_hg.html">lamellar_hg</a> and <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html">lamellar_hg_stack_caille</a> to fit the data.</p>
+	<p>Estimate a good initial value for length_head and lenght_tail (a typical lipid bilayer is 40-50 Å thick). Estimate a good initial value for d (see Part 2) and Nlayers (see Part 3). </p>
+	<p>Fit the data</p>
+	
+	<p>Comments on the results. You may not get perfect fits (reduced %Chi; <sup>2</sup> is not unity) - this is ok. </p>
+
+<h4><a href="../index.html">Home</a></h4>
+
+<!-- end inner -->
+</div>
+	
+<!-- end main -->´
+</div>
+
+<!-- end wrapper -->´
+</div>
+	
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>	
+</html>
