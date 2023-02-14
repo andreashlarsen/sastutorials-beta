@@ -38,18 +38,18 @@
 <h4>Part 1: Monodisperse spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a 50 Å radius (set parameters and press Submit)</p>
 	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/>
-	<p>Comment the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2), and with other shapes. Notice the inverse relation: larger particles have features at smaller q.</p>
-	<p>Download the data you just simulated: Isim.dat. <a href="Isim.dat">example</a></p>
-	<p>Load into SasView and fit with an analytical <a href="https://www.sasview.org/docs/user/models/sphere.html">sphere model</a>. The fit may look like this:</p>
+	<p>Comment on the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2), and with other shapes. Notice the inverse relation: larger particles have features at smaller q.</p>
+	<p>Download the data you just simulated: Isim.dat <a href="Isim.dat">(example data)</a></p>.
+	<p>Load the data into SasView and fit with an analytical <a href="https://www.sasview.org/docs/user/models/sphere.html">sphere model</a>. The fit may look like this:</p>
 	<img src="SasView_sphere50.png" style="width:1000px"/>
 	<p>Does the fitted radius match the input for your simulations (50 Å)?</p>
-	<p>Try doing the same with other shapes, e.g., a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder</a> or an <a href="https://www.sasview.org/docs/user/models/ellipsoid.html">ellipsoid</a></p>
+	<p>Try doing the same with other shapes, e.g., a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder</a> or an <a href="https://www.sasview.org/docs/user/models/ellipsoid.html">ellipsoid</a>.</p>
 
 <h4>Part 2: Polydisperse spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and relative polydispersity of 0.1 as Model 2.</p>
 	<p>The simulated results may look like this:</p>
 	<img src="Shape2SAS_polydisperse.png" style="width:1000px"/>
-	<p>Comment the results. Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a=50,b=40,c=60.</p>
+	<p>Comment on the results. Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å,b = 40 Å,c = 60 Å.</p>
 	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in a real samples <a href="https://doi.org/10.1107/S0021889813001295">(Pauw et al 2013)</a>.</p>
 
 <h4>Part 3: Spheres with interparticle repulsion (hard-sphere structure factor)</h4>
@@ -69,6 +69,8 @@
 	<p>Comment the results. Try to vary the fraction (i.e degree of aggregation) and the number of particles per aggregate (the size of the aggregates). </p>
 	<p>An aggregate structure factor may arise from "sticky" particles.</p>
 	<p>Note: a 2-dimensional fractal aggregate structure factor <a href="https://doi.org/10.1107/S1600576720006500">(Larsen et al 2020)</a> was used to simulate aggregation in Shape2SAS, but many different aggregates are possible in a real sample.</p>
+
+<h4><a href="../index.html">Home</a></h4>
 
 <!-- end inner -->
 </div>

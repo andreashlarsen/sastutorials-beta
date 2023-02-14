@@ -34,21 +34,21 @@
 	</ul>
 	
 <h4>Part 1: Monodisperse spheres with various contrasts</h4>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spheres with a 50 Å radius and contrast (Delta SLD) of 1 as model 1 and a sphere with contrast -1 as Model 2 (set parameters and press Submit)</p>
-	<p>Comment on the resulting scattering. Try to vary the contrast. In Shape2SAS, the forward scattering, I(q=0), is normalized to unity, but how would a numerically larger Delta SLD be observable in an experiment? (<a href="hint1.html">Hint</a>)</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spheres with a 50 Å radius and contrast (&Delta;SLD) of 1 as model 1 and a sphere with contrast -1 as Model 2 (set parameters and press Submit)</p>
+	<p>Comment on the resulting scattering. Try to vary the contrast. In Shape2SAS, the forward scattering, I(q=0), is normalized to unity, but how would a numerically larger &Delta;SLD be observable in an experiment? (<a href="hint1.html">Hint</a>)</p>
 
 <h4>Part 2: Core-shell spheres</h4>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spherical core-shell particle with inner radius of 30 Å and core dSLD of -1, and outer radius of 50 Å and shell dSLD of 1.</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spherical core-shell particle with inner radius of 30 Å and core &Delta;SLD of -1, and outer radius of 50 Å and shell &Delta;SLD of 1.</p>
 	<p>Comments on the results. Try to compare with a sphere with radius 30 Å or 50 Å (as Model 2). Adjust the radii of the core-shell particle to get an I(0) of 0. (<a href="hint1.html">Hint</a>)</p>
-	<p>Download the simulated data for Model 1: Isim.dat. (<a href="Isim.dat">Example data</a>)</p>
+	<p>Download the simulated data for Model 1: Isim.dat <a href="Isim.dat">(example data)</a>.</p>
 	<p>Load into SasView and fit a <a href="https://www.sasview.org/docs/user/models/core_shell_sphere.html">core-shell sphere form factor</a>. The result may look like this:</p>
 	<img src="SasView_CoreShell.png" style="width:1000px"/>
 	<p>Are the fitted values the same as the input values? Can you fit with different combinations of sld_core, sld_shell and sld_solvent? why (not)? (<a href="https://en.wikipedia.org/wiki/Babinet%27s_principle">Hint</a>)</p> 
 	<p>What happens if you fit both sld_core, sld_shell and sld_solvent? why? (<a href="https://en.wikipedia.org/wiki/Correlation">Hint</a>)</p>
 
-<h4>Part 3: A virtual contrast-variation experiment</h4>
+<h4>Part 3: Virtual contrast-variation experiment</h4>
     <p>This part is inspired by <a href="https://doi.org/10.1111/febs.14345">Midtgaard et al 2018</a>, where a detergent DDM is matched-out in SANS to get the scattering from a membrane protein without the detergent signal.</p>
-    <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and dSLD of 2. This is our simplistic model of an integral membrane protein.</p>
+    <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and &Delta;SLD of 2. This is our simplistic model of an integral membrane protein.</p>
 	<p>The transmembrane part of the  protein is hydrophobic, and therefore need to be solubilized in an actual experiment.</p>
 	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for a detergent micelle. Input parameters and output could look like this:</p>
     <img src="Shape2SAS_ProteinMicelle.png" style="width:1000px"/>
@@ -56,22 +56,23 @@
 	<p>We consider the situation, where the scientist is interested in finding the shape of the protein (here: the cylinder), and not the detergent micelle (here: the core-shell ellipsoid). </p>
 	<p>The whole system (protein+micelle) can be fitted simultaneously (see, eg., <a href="https://doi:10.1107/S1399004714016678">Perez and Koutsioubas, 2015</a>), but the shape can be determined more precisely, if the scattering signal from the micelle could be removed.</p>
 	<p>This can be achieved in SANS, by deuteration. First step is to partly deuterate the detergents, so head and tailgroups have the same scattering, i.e. replace some H's by D's. </p>
-	<p>Make a naive simulation of this, by changing the dSLD of the ellipsoid to the same value, e.g. 3.</p>
-	<p>Now, simulate that the solvent is replaced from H20 to D20. Simulate this by decreasing the dSLD of all elements by 3, so the dSLD of the ellipsoid is 0 and dSLD of the cylinder is -1. Now compare with Model 1 (protein without detergent).</p>
-	<p>Download the simulated data for Model 2 (with contrast-matched DDM): Isim_2.dat. <a href="Isim_2.dat">example data</a>, load into SASView and fit with a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder form factor</a>.</p>
+	<p>Make a naive simulation of this, by changing the &Delta;SLD of the ellipsoid to the same value, e.g. 3.</p>
+	<p>Now, simulate that the solvent is replaced from H20 to D20. Simulate this by decreasing the &Delta;SLD of all elements by 3, so the &Delta;SLD of the ellipsoid is 0 and &Delta;SLD of the cylinder is -1. Now compare with Model 1 (protein without detergent).</p>
+	<p>Download the simulated data for Model 2 (with contrast-matched DDM): Isim_2.dat <a href="Isim_2.dat">(example data)</a>. Load into SASView and fit with a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder form factor</a>.</p>
 	<p>The result may look like this:</p>
 	<img src="SasView_Cylinder.png" style="width:1000px"/>
 	<p>OBS: the simulated data is made with a finite number of points and placed at random in the user-defined volume, so the the fits are not perfect. (Not unlike a fit to experimental data).</p>
 
-<h4>Part 4: Calculating how to match-out DDM in 100% D<sub>2</sub>O</h4>
-	<p> The goal here is to calculate how much to deuterate a <a href="https://avantilipids.com/product/850520">DDM detergent</a> in order to match it out in a SANS experiment at 100% D2O. A spreadsheet will be useful.</p>
+<h4>Part 4: Match-out DDM in 100% D<sub>2</sub>O</h4>
+	<p> The goal here is to calculate how much to deuterate a <a href="https://avantilipids.com/product/850520">DDM detergent</a> in order to match it out in a SANS experiment at 100% D2O. Using a spreadsheet will be useful.</p>
 	<p> Use the chemical formulas to calculate the neutron coherent scattering lenghts for heavy water (D<sub>2</sub>O), DDM headgroups (C<sub>12</sub>H<sub>21</sub>O<sub>11</sub>) and DDM tailgroups (C<sub>12</sub>H<sub>25</sub>), using <a href="https://www.ncnr.nist.gov/resources/n-lengths/">NIST tabular values.</a></p>
-	<p> Use  experimentally determined molecular volumes to calculate SLD and dSLD = SLD-SLD_D<sub>2</sub>O for heavy water (30.0 Å<sup>3</sup>), DDM headgroups (350.4 Å<sup>3</sup>) and DDM tailgroup (350.2 Å<sup>3</sup>).</p>
+	<p> Use  experimentally determined molecular volumes to calculate SLD and &Delta;SLD = SLD-SLD<sub>D2O</sub> for heavy water (30.0 Å<sup>3</sup>), DDM headgroups (350.4 Å<sup>3</sup>) and DDM tailgroup (350.2 Å<sup>3</sup>).</p>
 	<img src="table_DDM.png" style="width:700px"/>
 	<p> 7 Hs from the DDM headgroup are exchangable, i.e, when DDM is dissolved in D<sub>2</sub>O, these Hs spontaneously exchange with Ds from the solvent. There are no exchangable Hs in the tailgroup (i.e. they are tightly bound). Calculate the SLD and dSLD of the DDM headgroup after exchange (C<sub>12</sub>H<sub>14</sub>D<sub>7</sub>O<sub>11</sub>).</p>
 	<p> OBS: find the average values - no need to reach an integer number. Why is this ok, experimentally?</p>
 	<p> Why is it better to match in D<sub>2</sub>O rather than H<sub>2</sub>O as solvent? (<a href="https://e-learning.pan-training.eu/wiki/index.php/Basics_of_neutron_scattering#Coherent_and_incoherent_scattering">Hint</a>)</p>
 
+<h4><a href="../index.html">Home</a></h4>
 
 <!-- end inner -->
 </div>

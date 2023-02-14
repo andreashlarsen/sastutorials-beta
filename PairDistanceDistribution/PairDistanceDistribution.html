@@ -62,7 +62,7 @@
 	<p>Comment on the resulting p(r) and compare with the shape of the protein as seen at the <a href="https://www.sasbdb.org/data/SASDPS4/">SASBDB entry</a>.
 
 <h4>Part 4: Inhomogeneous particles</h4>
-	<p>The p(r) is a contrast-weighted pair distribution (contrast = %Delta;SLD = excess scattering length density). I.e. each bin in the distribution is the weighted sum of all pairs with a given distance.</p> 
+	<p>The p(r) is a contrast-weighted pair distribution (contrast = &Delta;SLD = excess scattering length density). I.e. each bin in the distribution is the weighted sum of all pairs with a given distance.</p> 
 	<p>Therefore, if a pair of scatterers have contrasts with the same sign, then they contribute positively, but if the signs are opposite, then their contribution to the p(r) is negative. This means that the p(r) can have negative values</p>
 	<p>Go to <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a core-shell sphere with inner radius 40 Å and outer radius 50 Å and with inner SLD of -1 and outer SLD of +1
 	<img src="SasView_CoreShell1.png" style="width:1000px"/>
@@ -70,7 +70,7 @@
 	<p>What scattering pairs does the negative part of the p(r) represent? What distances does the two positive parts of the p(r) represent? The forward scattering I(0) is about 0. How does that relate to the p(r)? (<a href="hint1.html">Hint</a>)
 	<p>Download the simulated data <a href="Isim_coreshell.dat">(example data)</a> and upload it to <a href="https://somo.chem.utk.edu/bayesapp/">BayesApp</a>. Give an estimate of the maximum distance and press Submit. </p>
 	<p>Set the tranformation to Negative (to allow p(r) to be positive). Per default, BayesApp uses a positivety constraint, but that should be disabled here.</p>
-	<p>Compare with the true p(r) (in Shape2SAS). You may want to run <a href="https://somo.chem.utk.edu/bayesapp/">BayesApp</a> with positive constraint (default), just to see it fail.</p>
+	<p>Compare with the true p(r) (in <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>). You may want to run <a href="https://somo.chem.utk.edu/bayesapp/">BayesApp</a> with positive constraint (default), just to see it fail.</p>
 
 <h4>Part 5: Protein aggregation</h4>
 	<p>Protein aggregation in a sample may be detected using p(r) - in reveals itself as a "tail" towards high values of r.</p>
