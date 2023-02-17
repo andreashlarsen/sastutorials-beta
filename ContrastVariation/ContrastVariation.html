@@ -29,7 +29,7 @@
 	
 <h4>Learning outcomes</h4>
 	<ul>
-	<li>Understand contrast variation in small-angle scattering</li>
+	<li>Understand contrast variation in small-angle neutron scattering (SANS)</li>
 	<li>Design a contrast match experiment</li>	
 	</ul>
 	
@@ -48,9 +48,11 @@
 
 <h4>Part 3: Virtual contrast-variation experiment</h4>
     <p>This part is inspired by <a href="https://doi.org/10.1111/febs.14345">Midtgaard et al 2018</a>, where a detergent DDM is matched-out in SANS to get the scattering from a membrane protein without the detergent signal.</p>
-    <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and &Delta;SLD of 2. This is our simplistic model of an integral membrane protein.</p>
-	<p>The transmembrane part of the  protein is hydrophobic, and therefore need to be solubilized in an actual experiment.</p>
-	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for a detergent micelle. Input parameters and output could look like this:</p>
+    <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and &Delta;SLD of 2. This cylinder is our highly simplistic model of an integral membrane protein</p>
+	<p>The transmembrane part of the  protein is hydrophobic, and would therefore needs to be solubilized in an actual experiment.</p>
+	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for a detergent micelle:
+	<img src="Model_protein.pdf" style="width:1000px"/>
+	Input parameters and output could look like this:</p>
     <img src="Shape2SAS_ProteinMicelle.png" style="width:1000px"/>
 	<img src="Shape2SAS_ProteinMicelle2.png" style="width:1000px"/>
 	<p>We consider the situation, where the scientist is interested in finding the shape of the protein (here: the cylinder), and not the detergent micelle (here: the core-shell ellipsoid). </p>
