@@ -53,19 +53,20 @@
     <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and &Delta;SLD of 2. This cylinder is our highly simplistic model of an integral membrane protein</p>
 	<p>The transmembrane part of the  protein is hydrophobic, and would therefore needs to be solubilized in an actual experiment.</p>
 	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for protein in a detergent micelle:
-	<img src="Model_protein.pdf" style="width:1000px"/>
-	Input parameters and output could look like this:</p>
+	<img src="Model_protein.png" style="width:1000px"/>
+	To make this model in Shape2SAS, use these input parameters. Overlapping regions are excluded (by default), so if two shapes are overlapping, e.g. the cylinder and the first ellipsoid, then the top shape is prioritized, and all overlapping points from the second models are not part of the Model:</p>
     <img src="Shape2SAS_ProteinMicelle.png" style="width:1000px"/>
+	Output should look ca like this. There is some random variation when building the models (using monte carlo approach), so there will be small differences in the output:
 	<img src="Shape2SAS_ProteinMicelle2.png" style="width:1000px"/>
 	<p>We consider the situation, where the scientist is interested in finding the shape of the protein (here: the cylinder), and not the detergent micelle (here: the core-shell ellipsoid). </p>
 	<p>The whole system (protein+micelle) can be fitted simultaneously (see, eg., <a href="https://doi:10.1107/S1399004714016678">Perez and Koutsioubas, 2015</a>), but the shape can be determined more precisely, if the scattering signal from the micelle could be removed.</p>
 	<p>This can be achieved in SANS, by deuteration. First step is to partly deuterate the detergents, so head and tailgroups have the same scattering, i.e. replace some H's by D's. </p>
 	<p>Make a naive simulation of this, by changing the &Delta;SLD of the ellipsoid to the same value, e.g. 3.</p>
-	<p>Now, simulate that the solvent is replaced from H20 to D20. Simulate this by decreasing the &Delta;SLD of all elements by 3, so the &Delta;SLD of the ellipsoid is 0 and &Delta;SLD of the cylinder is -1. Now compare with Model 1 (protein without detergent).</p>
+	<p>Now, simulate that the solvent is replaced from H<sub>2</sub>O to D<sub>2</sub>O. Simulate this by decreasing the &Delta;SLD of all elements by 3, so the &Delta;SLD of the ellipsoid is 0 and &Delta;SLD of the cylinder is -1. Now compare with Model 1 (protein without detergent).</p>
 	<p>Download the simulated data for Model 2 (with contrast-matched DDM): Isim_2.dat <a href="Isim_2.dat">(example data)</a>. Load into SASView and fit with a <a href="https://www.sasview.org/docs/user/models/cylinder.html">cylinder form factor</a>.</p>
 	<p>The result may look like this:</p>
 	<img src="SasView_Cylinder.png" style="width:1000px"/>
-	<p>OBS: the simulated data is made with a finite number of points and placed at random in the user-defined volume, so the the fits are not perfect. (Not unlike a fit to experimental data).</p>
+	<p>OBS: the simulated data is made with a finite number of points and placed at random in the user-defined volume, so the the fits may not be perfect (not unlike a fit to experimental data).</p>
 
 <h4>Part 4: Match-out DDM in 100% D<sub>2</sub>O</h4>
 	<p> The goal here is to calculate how much to deuterate a <a href="https://avantilipids.com/product/850520">DDM detergent</a> in order to match it out in a SANS experiment at 100% D2O. Using a spreadsheet will be useful.</p>
