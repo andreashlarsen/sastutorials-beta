@@ -34,8 +34,10 @@
 	</ul>
 	
 <h4>Part 1: Monodisperse spheres with various contrasts</h4>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spheres with a 50 Å radius and contrast (&Delta;SLD) of 1 as model 1 and a sphere with contrast -1 as Model 2 (set parameters and press Submit)</p>
-	<p>Comment on the resulting scattering. Try to vary the contrast. In Shape2SAS, the forward scattering, I(q=0), is normalized to unity, but how would a numerically larger &Delta;SLD be observable in an experiment? (<a href="hint1.html">Hint</a>)</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spheres with a 50 Å radius and contrast (&Delta;SLD) of 1 as Model 1 and a sphere with contrast -1 as Model 2 (set parameters and press Submit):</p>
+	<img src="Shape2SAS_input.png" style="width:1000px"/>
+	<p>Comment on the resulting scattering. Why is the scattering the same despite that the &Delta;SLD have opposite sign? (<a href="hint0.html">Hint</a>)</p>
+	<p>Try to vary the contrast. In Shape2SAS, the forward scattering, I(q=0), is normalized to unity, but how would a numerically larger &Delta;SLD be observable in an experiment? (<a href="hint1.html">Hint</a>)</p>
 
 <h4>Part 2: Core-shell spheres</h4>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a spherical core-shell particle with inner radius of 30 Å and core &Delta;SLD of -1, and outer radius of 50 Å and shell &Delta;SLD of 1.</p>
@@ -50,7 +52,7 @@
     <p>This part is inspired by <a href="https://doi.org/10.1111/febs.14345">Midtgaard et al 2018</a>, where a detergent DDM is matched-out in SANS to get the scattering from a membrane protein without the detergent signal.</p>
     <p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a cylinder with radius 30 Å and length 90 Å and &Delta;SLD of 2. This cylinder is our highly simplistic model of an integral membrane protein</p>
 	<p>The transmembrane part of the  protein is hydrophobic, and would therefore needs to be solubilized in an actual experiment.</p>
-	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for a detergent micelle:
+	<p>In Shape2SAS, make as Model 2 a cylinder as before, but this time surrounded by a ellipsoidal core-shell particle, which is a model for protein in a detergent micelle:
 	<img src="Model_protein.pdf" style="width:1000px"/>
 	Input parameters and output could look like this:</p>
     <img src="Shape2SAS_ProteinMicelle.png" style="width:1000px"/>
