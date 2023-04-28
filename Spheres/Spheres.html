@@ -36,7 +36,7 @@
 	</ul>
 	
 <h4>Part 1: Monodisperse spheres</h4>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a 50 Å radius (set parameters and press Submit)</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a 50 Å radius You may have to click on the three lines in the top-left of the window, then "Calculations". Set parameters (default values for a 50 Å sphere) and press Submit.</p>
 	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/>
 	<ul>Shape2SAS generates three plots (besides from visualization of the particle):</li>
 	<li>A pair distance distribution. This is important in SAXS and SANS, but will not be used in this tutorial. See the tutorial: <a href="../PairDistanceDistribution/PairDistanceDistribution.html" target="_blank">Pair distance distribution, p(r)</a>.</li>
@@ -61,11 +61,11 @@
 <h4>Part 3: Spheres with interparticle repulsion (hard-sphere structure factor)</h4>
 	<p>If the concentration of particles in as sample is high, they may frequently "bump into each other". This will give rise to some characteristic distances (2 times the radius), which gives rise to change of the scattering.</p>
 	<p>The additional scattering can (for some samples) be described by a so-called hard-sphere structure factor.</p>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and hard sphere structure factor with volume fraction 0.2 and hard-sphere interaction radius of 50 Å as Model 2.</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and hard sphere structure factor with volume fraction 0.2 and hard-sphere interaction radius of 50 Å as Model 2.</p>
 	<img src="Shape2SAS_HardSphere.png" style="width:1000px"/>	
 	<p>Comment the results. You will se a "dip" at low-q, which is characteristic. If an experimentalist is not interested in this effect, it may be removed by lowering the sample concentration. You may try to decrease the volume fraction (i.e the concentration), to see the structure factor effect disappear. </p>
 	<p>Download the simulated data for Model 2 (with hard-sphere structure factor and volume fraction 0.2): Isim_2.dat. <a href="Isim_2.dat">(example data)</a></p>
-	<p>Load into SasView and fit a sphere form factor and a <a href="https://www.sasview.org/docs/user/models/hardsphere.html">hard-sphere structure factor</a>. The result may look like this:</p>
+	<p>Load into SasView and fit a <a href="https://www.sasview.org/docs/user/models/sphere.html" target="_blank">form factor</a> and a <a href="https://www.sasview.org/docs/user/models/hardsphere.html" target="_blank">hard-sphere structure factor</a>. The result may look like this:</p>
 	<img src="SasView_HardSphere.png" style="width:1000px"/>
 	<p>Does the fitted values match the input values for the simulations?</p>
 
@@ -75,7 +75,7 @@
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and aggregate structure factor with fraction of 0.01 (i.e. 1% of the particles are in an aggregate), effective radius of 50 Å, and 80 particles per aggregate as Model 2.</p>
 	<p>Model 1 corresponds to a sample without aggregation, and Model 2 corresponds to a sample, where 1% of the spheres are in aggregated form, with 80 spheres per aggregate. The resulting scattering may look like this (note: the aggregation is not included in the p(r)):</p>
 	<img src="Shape2SAS_Fractal.png" style="width:1000px"/>	
-	<p>Comment the results. Try to vary the fraction (i.e degree of aggregation) and the number of particles per aggregate (the size of the aggregates). Notice how this results in an upturn at low-q - i.e. opposite the dip a low-q for the hard-sphere structure factor. </p>
+	<p>Comment the results. Try varying the fraction (i.e degree of aggregation) and the number of particles per aggregate (the size of the aggregates). Notice how this results in an upturn at low-q - i.e. opposite the dip a low-q for the hard-sphere structure factor. </p>
 	<p>Note on the aggregate model: a 2-dimensional fractal aggregate structure factor <a href="https://doi.org/10.1107/S1600576720006500" target="_blank">(Larsen, Pedersen and Arleth 2020)</a> was used to simulate aggregation in Shape2SAS, but many different aggregates are possible in a real sample.</p>
 	
 <h4><a href="../index.html">Home</a></h4>
