@@ -61,23 +61,31 @@
 	<p>The molecular volumes can be determined experimentally and are 30 Å<sup>3</sup> for H<sub>2</sub>O, 325 Å<sup>3</sup> for DPPC head grops and 969 Å<sup>3</sup> for DPPC tail groups. Use SasView Density/Volume calculator (Tool -> Density/Volume calculator) to get the mass densities. You need to type in the chemical formula and molar volume - be aware of unit conversion <a href="hint2.html" target="_blank">(Hint)</a>.</p>
 	<img src="SasView_DensityVolumeCalculator.png" style="width:250px"/>
 	<p>Then use SasView SLD calculator to get the SLD values for solvent, head and tail group <a href="SLD_SasView.xlsx">(Solution)</a>.</p>
-	<p>Use the SasView models <a href="https://www.sasview.org/docs/user/models/lamellar_hg.html" target="_blank">lamellar_hg</a> (unilamellar vesicles) and <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles) to fit the data. </p>
-	<p>Select one dataset, press "Send data to" and select "Fitting" in the menu. Choose one of the models (under the category: Lamellae).</p>
-	<p>Before you fit the data, try to type in reasonable values for all parameters. DPPC has a tail length of 10-15 Å and a head length of 2-5 Å.</p>
+	<p>Use the SasView models <a href="https://www.sasview.org/docs/user/models/lamellar_hg.html" target="_blank">lamellar_hg</a> (unilamellar vesicles) or <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles) to fit the data. Start with Sample2.dat, is this has the least features (see Part 1). </p>
+	<p>Select the dataset, press "Send data to" and select "Fitting" in the menu. Choose one of the models (under the category: Lamellae). Always start with the simplest (in this case, that is <a href="https://www.sasview.org/docs/user/models/lamellar_hg.html" target="_blank">lamellar_hg</a>, unilamellar vesicles). You can add complexity if the simpler model does not fit data.</p>
+	<p>Before you fit the data, type in reasonable values for all parameters. DPPC has a tail length of 10-15 Å and a head length of 2-5 Å.</p>
 	<p>When fitting a model to SAXS data, you would often not fit all parameters at once, you may follow this "protocol":</p>
 	<ul>
-	<li>For the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles), estimate a good initial value for d (see Part 2) and Nlayers (see Part 3).</li>
-	<li>Calculate the scattering from the model (no fitting yet) by pressing "Show plot". Try to fit scale and backbround (set a check-mark there and press "Fit").</li>
+	<li>Calculate the scattering from the model (no fitting yet) by pressing "Show plot". </li>
+	<li>Fit fit scale and backbround (set a check-mark there and press "Fit"). Keep other parameters fixed</li>
 	<li>You may try to vary the parameters one at a time and press "Show Plot" to investigate what effect it has on the calculated scattering.</li>
-	<li>For the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a>, try to estimate d, by fitting this parameter together with scale and background and Caille_parameter.</li>
-	<li>(OBS: the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> has a bug, so Nlayers cannot be fitted - try to vary it manually instead.)</li>
-	<li>Now, try to fit the length_tail and length_head.</li>
+	<li>Now, try to fit the length_tail and length_head (together with scale and background). This should give a reasonable fit.</li>
 	<li>In the end, you may try to refine the scattering lengths densities, that you calculated. They should not be too different from the calculated values. If you fit all SLDs (also solvent SLD), then you get "nan" as error-estimate on that parameter - why? (<a href="hint3.html" target="_blank">Hint</a>)</li>
     </ul>
+
+	<p>For the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles), there are some additional steps in the protocol:
+	<ul>
+	<li>Ignore the first point, by setting qmin to 0.01 (under Fit Options). Ignore the last points by setting qmax=0.5</li>
+	<li>Before fitting, estimate a good initial value for d (see Part 2) and Nlayers (see Part 3).</p>
+	<li>Try to estimate d, by fitting this parameter together with scale and background and Caille_parameter.</li>
+	<li>(OBS: the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> has a bug, so Nlayers cannot be fitted - try to vary it manually instead.)</li>
+    <li>Then fit the length_tail and length_head</li>
+	<li>In the end, refine the scattering lengths densities.They should not be too different from the calculated values.</li>
+    </ul>
 	<p>The fit may look like this for one of the samples:</p>
-	<img src="SasView_multilamellar.png" style="width:1300px"/>
-	<p>And like this for the other sample:</p>
 	<img src="SasView_unilamellar.png" style="width:1300px"/>
+	<p>And like this for the other sample:</p>
+	<img src="SasView_multilamellar.png" style="width:1300px"/>
 	<p>Comments on the results. You may not get perfect fits (<a href="../reduced_chi2.html" target="_blank">reduced &chi; <sup>2</sup></a> is not unity) - this is ok. This means that the models are not perfect - how could the model be improved? (<a href="hint4.html" target="_blank">Hint</a>) </p>
 	<p>The goal was not to obtain perfect fits, but to answer relevant scientific questions: what phase does the two lipid mixtures form? - the models are sufficently good to answer that question. And to answer other questions, e.g., how does the structure change if we change temperature, lipid composition (e.g., a more biologically relevant compositions), concenttration, etc</p>
 
