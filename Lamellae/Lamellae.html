@@ -67,20 +67,21 @@
 	<p>When fitting a model to SAXS data, you would often not fit all parameters at once, you may follow this "protocol":</p>
 	<ul>
 	<li>Calculate the scattering from the model (no fitting yet) by pressing "Show plot". </li>
-	<li>Fit fit scale and backbround (set a check-mark there and press "Fit"). Keep other parameters fixed</li>
+	<li>Ignore the first point, by setting qmin to 0.01 (under Fit Options). Ignore the last points by setting qmax=0.5</li>
+	<li>Fit scale and backbround (set a check-mark there and press "Fit"). Keep other parameters fixed</li>
 	<li>You may try to vary the parameters one at a time and press "Show Plot" to investigate what effect it has on the calculated scattering.</li>
-	<li>Now, try to fit the length_tail and length_head (together with scale and background). This should give a reasonable fit.</li>
+	<li>Now, try to fit the length_tail and length_head (together with scale and background). This should give a reasonable fit. You may have to fix length_tail or set an upper limit, as, for some reason, a good fit can be achieved for Sample2 with length_tail of around 15, which is unrealistic. </li>
 	<li>In the end, you may try to refine the scattering lengths densities, that you calculated. They should not be too different from the calculated values. If you fit all SLDs (also solvent SLD), then you get "nan" as error-estimate on that parameter - why? (<a href="hint3.html" target="_blank">Hint</a>)</li>
     </ul>
 
-	<p>For the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles), there are some additional steps in the protocol:
+	<p>For the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> (multilamellar vesiceles), there are some additional steps in the fitting protocol:
 	<ul>
+	<li>Before fitting, estimate a good initial value for d (see Part 2) and Nlayers (see Part 3).</li>
 	<li>Ignore the first point, by setting qmin to 0.01 (under Fit Options). Ignore the last points by setting qmax=0.5</li>
-	<li>Before fitting, estimate a good initial value for d (see Part 2) and Nlayers (see Part 3).</p>
-	<li>Try to estimate d, by fitting this parameter together with scale and background and Caille_parameter.</li>
+	<li>Try to estimate d_spacing, by fitting this parameter together with scale and background and Caille_parameter.</li>
 	<li>(OBS: the model <a href="https://www.sasview.org/docs/user/models/lamellar_hg_stack_caille.html" target="_blank">lamellar_hg_stack_caille</a> has a bug, so Nlayers cannot be fitted - try to vary it manually instead.)</li>
-    <li>Then fit the length_tail and length_head</li>
-	<li>In the end, refine the scattering lengths densities.They should not be too different from the calculated values.</li>
+    <li>Then fit the length_tail and length_head. Are the values reasonable? else, try to fix one or set min/max values.</li>
+	<li>In the end, refine the scattering lengths densities. They should not be too different from the calculated values.</li>
     </ul>
 	<p>The fit may look like this for one of the samples:</p>
 	<img src="SasView_unilamellar.png" style="width:1300px"/>
