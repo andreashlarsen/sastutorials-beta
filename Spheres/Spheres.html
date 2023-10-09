@@ -25,7 +25,8 @@
 <h4>Before you start</h4>
 	<ul>
 	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a></li>
-	</ul>
+	<li>Mac Users: you need to install Xcode before SasView can run</li>
+    </ul>
 	
 <h4>Learning outcomes</h4>
 	<ul>
@@ -46,9 +47,18 @@
 	<img src="Shape2SAS_sphere.png" style="width:1000px"/>
 	<p>Comment on the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2), and with other shapes. Notice the inverse relation: larger particles have features at smaller q.</p>
 	<p>Download the data you just simulated: Isim.dat <a href="Isim.dat">(example data)</a>.</p>
-	<p>Load the data into SasView and fit with an analytical <a href="https://www.sasview.org/docs/user/models/sphere.html" target="_blank">sphere model</a>. The fit may look like this:</p>
+	<p>Load the data into SasView, and plot it (lower left corner -> "create new").</p>
+	<p>Fit with an analytical <a href="https://www.sasview.org/docs/user/models/sphere.html" target="_blank">sphere model</a>:
+	<ul>
+	<li> Pres "Send data to", choose Category: Sphere, Model name: Sphere, and Structure factor: None.</li>
+	<li> Choose reasonable starting parameters</li>
+	<li> Uncheck boxes you want to fit (radius, scale and background)</li>
+	<li> Press "Fit"</li>
+	<li> The fit may look like this:</li>
+	</ul>
 	<img src="SasView_sphere50.png" style="width:1000px"/>
 	<p>Does the fitted radius match the input for your simulations (50 Å)? Is the fit "good" - as assesed by visual inspection and the <a href="../reduced_chi2.html" target="_blank">reduced &chi; <sup>2</sup></a></p>
+	<p>Try typing in other values for the scattering length density (sld), but without fitting this value - what is the effect? (<a href="hint0.html" target="_blank">Hint</a>)</p>
 	<p>Try doing the same with other shapes, e.g., a <a href="https://www.sasview.org/docs/user/models/cylinder.html" target="_blank">cylinder</a> or an <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> (two radii are the same, one different) or a <a href="https://www.sasview.org/docs/user/models/triaxial_ellipsoid.html" target="_blank"> tri-axial ellipsoid</a> (all radii are different). Note: for the <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> model in SasView, ensure that you to use the right values for R_e (the two identical radii) and R_p (the other radius).</p>
 
 <h4>Part 2: Polydisperse spheres</h4>
