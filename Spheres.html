@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+
+<html>
+	
+<head>
+<title>Tutorial Spheres</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="../assets/css/main.css" />
+<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+
+<div id="wrapper">
+
+<div id="main">
+
+<div class="inner">
+
+<h4><a href="../index.html">Home</a></h4>
+<h1>Tutotial: Spheres</h1>
+<p> Tutorial contributors: Andreas Haahr Larsen, Martin Cramer Pedersen, Jacob Kierkensgaard</p>
+	
+<h4>Before you start</h4>
+	<ul>
+	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a> (Mac users must to install <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12.org" target="_blank">Xcode</a> first)</li>
+    </ul>
+	
+<h4>Learning outcomes</h4>
+	<ul>
+	<li>Basic understanding of small-angle scattering</li>
+	<li>Get intuition about the scattering from spheres and other shapes</li>
+	<li>Learn simple model fitting in SasView</li>
+	<li>Learn how interparticle interaction and polydispersity affects the scattering</li>
+	</ul>
+	
+<h4>Part 1: Monodisperse spheres</h4>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a 50 Å radius You may have to click on the three lines in the top-left of the window, then "Calculations". Set parameters (default values for a 50 Å sphere) and press Submit.</p>
+	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/>
+	<ul>Shape2SAS generates three plots (besides from visualization of the particle):</li>
+	<li>A pair distance distribution. This is important in SAXS and SANS, but will not be used in this tutorial. See the tutorial: <a href="../PairDistanceDistribution/PairDistanceDistribution.html" target="_blank">Pair distance distribution, p(r)</a>.</li>
+	<li>Calculated scattering, normalized. This is the form factor, P(q).</li>
+	<li>Simulated scattering, showing what real SAXS or SANS data for that sample may look like.</li>
+	</ul>
+	<img src="Shape2SAS_sphere.png" style="width:1000px"/>
+	<p>Comment on the resulting scattering. Try to compare with a smaller or larger sphere (as Model 2), and with other shapes. Notice the inverse relation: larger particles have features at smaller q.</p>
+	<p>Download the data you just simulated: Isim.dat <a href="Isim.dat">(example data)</a>.</p>
+	<p>Load the data into SasView, and plot it (lower left corner -> "create new").</p>
+	<p>Fit with an analytical <a href="https://www.sasview.org/docs/user/models/sphere.html" target="_blank">sphere model</a>:
+	<ul>
+	<li> Pres "Send data to", choose Category: Sphere, Model name: Sphere, and Structure factor: None.</li>
+	<li> Choose reasonable starting parameters</li>
+	<li> Uncheck boxes you want to fit (radius, scale and background)</li>
+	<li> Press "Fit"</li>
+	<li> The fit may look like this:</li>
+	</ul>
+	<img src="SasView_sphere50.png" style="width:1000px"/>
+	<p>Does the fitted radius match the input for your simulations (50 Å)? Is the fit "good" - as assesed by visual inspection and the <a href="../reduced_chi2.html" target="_blank">reduced &chi; <sup>2</sup></a></p>
+	<p>Try typing in other values for the scattering length density (sld), but without fitting this value - what is the effect? (<a href="hint0.html" target="_blank">Hint</a>)</p>
+	<p>Try doing the same with other shapes, e.g., a <a href="https://www.sasview.org/docs/user/models/cylinder.html" target="_blank">cylinder</a> or an <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> (two radii are the same, one different) or a <a href="https://www.sasview.org/docs/user/models/triaxial_ellipsoid.html" target="_blank"> tri-axial ellipsoid</a> (all radii are different). Note: for the <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> model in SasView, ensure that you to use the right values for R_e (the two identical radii) and R_p (the other radius).</p>
+
+<h4>Part 2: Polydisperse spheres</h4>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and relative polydispersity of 0.1 as Model 2.</p>
+	<p>The simulated results may look like this:</p>
+	<img src="Shape2SAS_polydisperse.png" style="width:1000px"/>
+	<p>Comment on the results. Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å, b = 40 Å, c = 60 Å.</p>
+	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in a real samples <a href="https://doi.org/10.1107/S0021889813001295" target="_blank">(Pauw et al 2013)</a>.</p>
+
+<h4>Part 3: Spheres with interparticle repulsion (hard-sphere structure factor)</h4>
+	<p>If the concentration of particles in as sample is high, they may frequently "bump into each other". This will give rise to some characteristic distances (2 times the radius), which gives rise to change of the scattering.</p>
+	<p>The additional scattering can (for some samples) be described by a so-called hard-sphere structure factor.</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and hard sphere structure factor with volume fraction 0.2 and hard-sphere interaction radius of 50 Å as Model 2.</p>
+	<img src="Shape2SAS_HardSphere.png" style="width:1000px"/>	
+	<p>Comment the results. You will se a "dip" at low-q, which is characteristic. If an experimentalist is not interested in this effect, it may be removed by lowering the sample concentration. You may try to decrease the volume fraction (i.e the concentration), to see the structure factor effect disappear. </p>
+	<p>Download the simulated data for Model 2 (with hard-sphere structure factor and volume fraction 0.2): Isim_2.dat. <a href="Isim_2.dat">(example data)</a></p>
+	<p>Load into SasView and fit a <a href="https://www.sasview.org/docs/user/models/sphere.html" target="_blank">form factor</a> and a <a href="https://www.sasview.org/docs/user/models/hardsphere.html" target="_blank">hard-sphere structure factor</a>. The result may look like this:</p>
+	<img src="SasView_HardSphere.png" style="width:1000px"/>
+	<p>Does the fitted values match the input values for the simulations?</p>
+
+<h4>Part 4: Spheres with a fraction of aggregated spheres (fractal structure factor)</h4>
+    <p>Some particles have a tendency to aggregate (being "sticky"). This may be proteins or nanoparticles. If a part of the sample aggregates, the scattering will be a sum of the scattering from the aggregate and that from the non-aggregated particles.</p>
+	<p>Aggregates may also be described by a structure factor (albeit very different from the hard-sphere structure facotor), and as we shall see, having the opposite effect.</p>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and aggregate structure factor with fraction of 0.01 (i.e. 1% of the particles are in an aggregate), effective radius of 50 Å, and 80 particles per aggregate as Model 2.</p>
+	<p>Model 1 corresponds to a sample without aggregation, and Model 2 corresponds to a sample, where 1% of the spheres are in aggregated form, with 80 spheres per aggregate. The resulting scattering may look like this (note: the aggregation is not included in the p(r)):</p>
+	<img src="Shape2SAS_Fractal.png" style="width:1000px"/>	
+	<p>Comment the results. Try varying the fraction (i.e degree of aggregation) and the number of particles per aggregate (the size of the aggregates). Notice how this results in an upturn at low-q - i.e. opposite the dip a low-q for the hard-sphere structure factor. </p>
+	<p>Note on the aggregate model: a 2-dimensional fractal aggregate structure factor <a href="https://doi.org/10.1107/S1600576720006500" target="_blank">(Larsen, Pedersen and Arleth 2020)</a> was used to simulate aggregation in Shape2SAS, but many different aggregates are possible in a real sample.</p>
+	
+<h4><a href="../index.html">Home</a></h4>
+
+<!-- end inner -->
+</div>
+	
+<!-- end main -->´
+</div>
+
+<!-- end wrapper -->´
+</div>
+	
+<!-- Scripts -->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/browser.min.js"></script>
+<script src="../assets/js/breakpoints.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>	
+</html>
