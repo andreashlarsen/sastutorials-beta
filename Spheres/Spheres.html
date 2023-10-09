@@ -24,8 +24,7 @@
 	
 <h4>Before you start</h4>
 	<ul>
-	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a></li>
-	<li>Mac Users: you need to install Xcode before SasView can run</li>
+	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a> (Mac users must to install <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12.org" target="_blank">Xcode</a> first)</li>
     </ul>
 	
 <h4>Learning outcomes</h4>
@@ -52,7 +51,7 @@
 	<ul>
 	<li> Pres "Send data to", choose Category: Sphere, Model name: Sphere, and Structure factor: None.</li>
 	<li> Choose reasonable starting parameters</li>
-	<li> Uncheck boxes you want to fit (radius, scale and background)</li>
+	<li> Check boxes you want to fit (radius, scale and background)</li>
 	<li> Press "Fit"</li>
 	<li> The fit may look like this:</li>
 	</ul>
@@ -67,6 +66,7 @@
 	<img src="Shape2SAS_polydisperse.png" style="width:1000px"/>
 	<p>Comment on the results. Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å, b = 40 Å, c = 60 Å.</p>
 	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in a real samples <a href="https://doi.org/10.1107/S0021889813001295" target="_blank">(Pauw et al 2013)</a>.</p>
+	<p>If you want to fit the data in SasView, check "polydispersity" under Options in the fitting window (below the model parameters), and go to the polydispersity banner and check the "Distribution of radius" box. Choose a starting value for PD, e.g. 0.1.</p>
 
 <h4>Part 3: Spheres with interparticle repulsion (hard-sphere structure factor)</h4>
 	<p>If the concentration of particles in as sample is high, they may frequently "bump into each other". This will give rise to some characteristic distances (2 times the radius), which gives rise to change of the scattering.</p>
