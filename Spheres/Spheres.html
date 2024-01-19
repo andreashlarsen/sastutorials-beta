@@ -24,7 +24,7 @@
 	
 <h4>Before you start</h4>
 	<ul>
-	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a> (on MacOS: you need to first install Xcode)</li>
+	<li>Download and install <a href="https://www.sasview.org" target="_blank">SasView</a> (on MacOS: you need to install Xcode first)</li>
 	</ul>
 	
 <h4>Learning outcomes</h4>
@@ -37,8 +37,8 @@
 	</ul>
 	
 <h4>Part 1: Monodisperse spheres</h4>
-	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a 50 Å radius You may have to click on the three lines in the top-left of the window, then "Calculations". Set parameters (default values for a 50 Å sphere) and press Submit.</p>
-	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/>
+	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a 50 Å radius You may have to click on the three lines in the top-left of the window, then "Calculations". Set parameters (default values for a 50 Å sphere) and press Submit.<br>
+	<img src="Shape2SAS_sphere_50.png" style="width:1000px"/></p>
 	<ul>Shape2SAS generates three plots (besides from visualization of the particle):</li>
 	<li>A pair distance distribution. This is important in SAXS and SANS, but will not be used in this tutorial. See the tutorial: <a href="../PairDistanceDistribution/PairDistanceDistribution.html" target="_blank">Pair distance distribution, p(r)</a>.</li>
 	<li>Calculated scattering, normalized. This is the form factor, P(q). It contains information about the size and shape of the particle (sphere/cylinder/...).</li>
@@ -61,17 +61,17 @@
 			<li>A convergence plot is shown along with the previous windows - this just shows that the fitting algoritm has converges, and you can ignore that.</li>
 		</ol>
 	</p>
-	<p>The fit may look like this:</p>
+	<p>The fit may look like this:<br>
 	<img src="SasView_sphere50.png" style="width:1000px"/>
-	<p>Does the fitted radius match the input for your simulations (50 Å)? Is the fit "good" - as assesed by visual inspection and the <a href="../reduced_chi2.html" target="_blank">reduced &chi; <sup>2</sup></a>. This value is displayed in the Fit panel.</p>
+	Does the fitted radius match the input for your simulations (50 Å)? Is the fit "good" - as assesed by visual inspection and the <a href="../reduced_chi2.html" target="_blank">reduced &chi; <sup>2</sup></a>. This value is displayed in the Fit panel.</p>
 	<p>Try doing the same with other shapes, e.g., a <a href="https://www.sasview.org/docs/user/models/cylinder.html" target="_blank">cylinder</a> or an <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> (two radii are the same, one different) or a <a href="https://www.sasview.org/docs/user/models/triaxial_ellipsoid.html" target="_blank"> tri-axial ellipsoid</a> (all radii are different). Note: for the <a href="https://www.sasview.org/docs/user/models/ellipsoid.html" target="_blank">ellipsoid of revolution</a> model in SasView, ensure that you to use the right values for R_e (the two identical radii) and R_p (the other radius).</p>
 
 <h4>Part 2: Polydisperse spheres</h4>
 	<p>Polydispersity means that there are particles with different shapes or sizes in the sample. That could be a distribution of spherical nanoparticles with some variation in their radius. </p>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and relative polydispersity of 0.1 as Model 2. The first is monodispers, the second in polydisperse.</p>
-	<p>The simulated results may look like this:</p>
+	<p>The simulated results may look like this:<br>
 	<img src="Shape2SAS_polydisperse.png" style="width:1000px"/>
-	<p>Comment on the results. Why is the features "smeared out" in the polydisperse sample? Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å, b = 40 Å, c = 60 Å.</p>
+	Comment on the results. Why is the features "smeared out" in the polydisperse sample? Try to vary the degree of polydispersity. Try to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å, b = 40 Å, c = 60 Å.</p>
 	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in a real samples <a href="https://doi.org/10.1107/S0021889813001295" target="_blank">(Pauw et al 2013)</a>. One scientific question could be to determine this distribution.</p>
 	<p>You can try to load the data <a href="Isim_poly.dat" target="_blank">(you can also use this example data)</a> into SasView and model the polydispersity. You need some extra steps, besides those you did in Part I:</p>
 	<ol>
@@ -82,7 +82,7 @@
 		<li>press fit</li>
 		<li>besides from fit, residuals and convergence, you also get a window with the fitted distibution of radii of spheres in the sample. By default it plots on log-log. If you right-click, choose change scale to x and y (not log), you will recognise a normal distribution in the radius. </li>
 	</ol>
-	<p>The output distribution may look like this:
+	<p>The output distribution may look like this:<br>
 	<img src="PolyDistr.png" style="width:500px"/></p>
 <h4>Part 3: Spheres with interparticle repulsion (hard-sphere structure factor)</h4>
 	<p>If the concentration of particles in as sample is high, they may frequently "bump into each other". This will give rise to some characteristic distances (2 times the radius), which gives rise to change of the scattering.
