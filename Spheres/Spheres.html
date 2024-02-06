@@ -20,7 +20,7 @@
 
 <h4><a href="../index.html">Home</a></h4>
 <h1>Tutotial: Spheres</h1>
-<p> Tutorial contributors: Andreas Haahr Larsen, Martin Cramer Pedersen, Jacob Kierkensgaard, Viktor Holm-Janas.</p>
+<p> Tutorial contributors: Andreas Haahr Larsen, Martin Cramer Pedersen, Jacob Kirkensgaard, Viktor Holm-Janas.</p>
 	
 <h4>Before you start</h4>
 	<ul>
@@ -29,8 +29,8 @@
 	
 <h4>Learning outcomes</h4>
 	<ul>
-	<li>Simulate SAS data of spherical particles, and determine which sample contains the larger particles, by visaully comparing the curves.</li>
-	<li>Describe the diffrence between the scattering from spheres and ellipsoids.</li>
+	<li>Simulate SAS data of spherical particles, and determine which sample contains the larger particles, by visually comparing the curves.</li>
+	<li>Describe the difference between the scattering from spheres and ellipsoids.</li>
 	<li>Recognize interparticle interaction in a small-angle scattering experiment and know under what conditions this may happen.</li>
 	<li>Descriminate a sample of polydisperse spheres from a sample of monodisperse spheres.</li>
 	<li>Be able to fit a sphere in SasView and determine its size, and size distribution if it is polydisperse.</li>
@@ -58,7 +58,7 @@
 		<li>You can try to adjust some parameters manually, and pres compute again. Try to manually find some resonable values for scaling, background and radius.</li>
 		<li>Try changing the value of the radius to see what happens - notice the inverse relation: larger radius moves all the features to smaller q values.</li>
 		<li>Try to fit: check the boxes: scale, background and radius, and press "Fit".</li>
-		<li>A convergence plot is shown along with the previous windows - this just shows that the fitting algoritm has converges, and you can ignore that.</li>
+		<li>A convergence plot is shown along with the previous windows - this just shows that the fitting algoritm has converged, and you can ignore that.</li>
 	</ol>
 	</p>
 	<p>Shown below is an example of a fit to samples of 50 Å spheres - how does it compare to your results?:<br>
@@ -68,19 +68,19 @@
 	<p>Try also to simulate and fit a <a href="https://www.sasview.org/docs/user/models/cylinder.html" target="_blank">cylinder</a>.</p>
 
 <h4>Part 2: Polydisperse spheres</h4>
-	<p>Polydispersity means that there are particles with different shapes or sizes in the sample, following some size distribution. That could be a spherical nanoparticles with some variation in their radius. </p>
+	<p>Polydispersity means that there are particles with different shapes or sizes in the sample, following some size distribution. That could be spherical nanoparticles with some variation in their radius. </p>
 	<p>Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 (monodisperse sample) and a sphere with radius of 50 Å and relative polydispersity of 0.1 as Model 2 (polydisperse sample).
 	The simulated data may look like this:<br>
 	<img src="Shape2SAS_polydisperse.png" style="width:1000px"/><br>
 	Comment on the results. Why is the features "smeared out" in the polydisperse sample? Try to vary the degree of polydispersity. <br> 
 	Try also to compare the scattering from polydisperse spheres with that of ellipsoid with semiaxes a = 50 Å, b = 40 Å, c = 60 Å.</p>
-	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in a real samples <a href="https://doi.org/10.1107/S0021889813001295" target="_blank">(Pauw et al 2013)</a>.</p>
+	<p>Note: a Gaussian (normal) size distribution is used to simulate polydispersity in Shape2SAS, but many different size distributions are possible in real samples <a href="https://doi.org/10.1107/S0021889813001295" target="_blank">(Pauw et al 2013)</a>.</p>
 	<p>Load your data <a href="Isim_poly.dat" target="_blank">(or you can use this example data)</a> into SasView and model the polydispersity. You need some extra steps, besides those you did in Part I:</p>
 	<ol>
 		<li>load the data as before, and choose the sphere model. Try to fit the data with a monodisperse model as good as possible.</li>
 		<li>to include polydispersity, click the "Polydispersity" option in the lower left corner of the Fit panel.</li>
 		<li>click the (now active) "polydispersity" tab in the Fit Panel. check the box "Distribution of radius". Give a non-zero number as default for PD (stands for polydispersity).</li>
-		<li>on the right side, it says that it is assuming a Gaussian distribution (a normal distribution). This is fine, but other distributions can be choosen.</li>
+		<li>on the right side, it says that it is assuming a Gaussian distribution (a normal distribution). This is fine, but other distributions can be chosen.</li>
 		<li>press fit</li>
 		<li>besides from fit, residuals and convergence, you also get a window with the fitted distibution of radii of spheres in the sample. By default it plots on log-log. If you right-click, choose change scale to x and y (instead of logarithmic), you will recognise that the a <a href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank">normal distribution</a> in the radius. </li>
 	</ol>
@@ -104,11 +104,11 @@
 
 <h4>Part 4: Spheres with a fraction of aggregated spheres (fractal structure factor)</h4>
     <p>Some particles have a tendency to aggregate (be "sticky"). This may be proteins or nanoparticles. If a part of the sample aggregates, the scattering will be a sum of the scattering from the aggregate and that from the non-aggregated particles.<br>
-	Aggregates may also be described by a structure factor (althoug very different from the hard-sphere structure facotor), and as we shall see, having the opposite effect.<br>
+	Aggregates may also be described by a structure factor (although very different from the hard-sphere structure facotor), and as we shall see, having the opposite effect.<br>
 	Go to: <a href="https://somo.chem.utk.edu/shape2sas/" target="_blank">Shape2SAS</a>, and simulate a sphere with a radius of 50 Å as Model 1 and a sphere with radius of 50 Å and aggregate structure factor with fraction of 0.01 (i.e. 1% of the particles are in an aggregate), effective radius of 50 Å, and 80 particles per aggregate as Model 2.<br>
 	Model 1 corresponds to a sample without aggregation, and Model 2 corresponds to a sample, where 1% of the spheres are in aggregated form, with 80 spheres per aggregate. The resulting scattering may look like this (note: the aggregation is not included in the p(r)):
 	<img src="Shape2SAS_Fractal.png" style="width:1000px"/>	<br>
-	Comment the results. Try varying the fraction (i.e., degree of aggregation) and the number of particles per aggregate (the size of the aggregates). Notice how this results in an upturn at low-q - i.e. opposite the dip a low-q for the hard-sphere structure factor. <br>
+	Comment the results. Try varying the fraction (i.e., degree of aggregation) and the number of particles per aggregate (the size of the aggregates). Notice how this results in an upturn at low-q - i.e. opposite the dip at low-q for the hard-sphere structure factor. <br>
 	Note on the aggregate model: a 2-dimensional fractal aggregate structure factor <a href="https://doi.org/10.1107/S1600576720006500" target="_blank">(Larsen, Pedersen and Arleth 2020)</a> was used to simulate aggregation in Shape2SAS, but many different aggregates are possible in a real sample.<br>
 	Currently, this structure factor is not implemented in SasView - <a href="https://www.sasview.org/contribute/" target="_blank">maybe this is a task for you?</a> </p>
 
