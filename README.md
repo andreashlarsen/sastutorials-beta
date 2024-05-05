@@ -1,4 +1,4 @@
-The tutorials have been moved to [sastutorials.org](https://sastutorials.org/) with GitHub page [https://github.com/andreashlarsen/sastutorials/] (https://github.com/andreashlarsen/SAStutorials)
+The tutorials have been moved to [sastutorials.org](https://sastutorials.org/) with GitHub page [github.com/andreashlarsen/SAStutorials/](https://github.com/andreashlarsen/SAStutorials)
 
 
 # SASTutorials
