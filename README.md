@@ -1,3 +1,6 @@
+The tutorials have been moved to [sastutorials.org](https://sastutorials.org/) with GitHub page [https://github.com/andreashlarsen/sastutorials/edit/main/README.md](https://github.com/andreashlarsen/SAStutorials)
+
+
 # SASTutorials
 Code for website containing Tutorials on Small-Angle Scattering:
 
